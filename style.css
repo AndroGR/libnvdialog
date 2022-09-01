@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Anek+Telugu&family=Inter:wght@700&family=Poppins:wght@100;400&display=swap');
+
+body {
+        padding-left: 2%;
+        padding-right: 2%;
+}
+
+.aref {
+        transition: all 0.2s ease-in-out;
+        position: relative;
+        color: black;
+        font-size: larger;
+        padding: 20px;
+        font-family: 'Poppins', Courier, monospace;
+        text-decoration: none;
+}
+
+.aref:hover {
+        transform: scale(2323);
+        text-shadow: 0px 0px 23px rgb(0, 76, 255);
+        color: rgb(38, 0, 255);
+}
+
+
+.toppanel {
+        font-family: 'InterV';
+        padding: 22px;
+        background-color: rgb(255, 255, 255);
+        overflow: hidden;
+}
+
+.header {
+        padding-bottom: 2px;
+        font-size: 70px;
+        font-family: 'Inter';
+}
+
+.weak {
+        font-size: x-large;
+        font-family: 'Anek Telugu';
+        color: rgb(86, 86, 86);
+}
+
+.text {
+        color: black;
+        font-size: x-large;
+        font-family: 'Anek Telugu';
+}
+
+.container {
+        padding-bottom: 80px;
+}
+
+.btn {
+        transition: all 0.33s;
+        font-family: 'Inter';
+        font-size: medium;
+        color: aliceblue;
+        background-color: rgb(0, 149, 255);
+        border: none;
+        border-radius: 8px;
+        font-size: large;
+        padding: 25px;
+}
+
+.ref {
+        text-decoration:none;
+        color: rgb(0, 13, 255);
+}
+
+.ref:hover {
+        text-decoration: underline;
+}
+
+.btn:hover {
+        cursor: pointer;
+        box-shadow: 0px 0px 20px 5px rgba(0, 102, 255, 0.55)
+}
+
+.bottom-section {
+        color: aliceblue;
+        background-color: black;
+        text-align: center;
+        padding: 30px;
+}
