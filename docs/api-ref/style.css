@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Anek+Telugu&family=Inter:wght@700&family=Poppins:wght@100;400&display=swap');
+
+body {
+        text-decoration: none;
+        padding: 150px;
+        padding-top: 0px;
+}
+
+.container {
+        transition: margin-left .5s;
+        padding: 20px;
+        padding-bottom: 80px;
+}
+
+.header {
+        color: rgb(0, 0, 0);
+        font-size: 70px;
+        font-family: 'Inter';
+}
+
+.small {
+        margin-top: -3%;
+        font-size: large;
+        font-family: 'Anek Telugu'
+}
+
+.large {
+        font-size: xx-large;
+        font-family: 'Inter';
+}
+
+.weak {
+        line-height: 40px;
+        font-size: x-large;
+        font-family: 'Anek Telugu';
+        color: rgb(32, 55, 79);
+}
+
+.toppanel {
+        font-family: 'InterV';
+        padding: 22px;
+        background-color: rgb(255, 255, 255);
+        overflow: hidden;
+}
+
+.aref {
+        transition: all 0.2s ease-in-out;
+        position: relative;
+        color: black;
+        font-size: larger;
+        padding: 20px;
+        font-family: 'Poppins', Courier, monospace;
+        text-decoration: none;
+}
+
+.aref:hover {
+        transform: scale(2323);
+        text-shadow: 0px 0px 23px rgb(0, 76, 255);
+        color: rgb(38, 0, 255);
+}

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="../../highlightjs/styles/atom-one-light.min.css">
+<script src="../../highlightjs/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="shortcut icon" type="image/svg" href="assets/logo.svg"/>
+
+<title>
+        nvd-init | NvDialog API Reference
+</title>
+
+<div class="toppanel" align="right">
+        <a class="aref" href="index.html"><b>Home</a>
+        <a class="aref" href="getstarted.html">Get Started</a>
+        <a class="aref" href="https://github.com/AndroGR/nvdialog/">Source Code</a>
+        <a class="aref" href="other-projects.html">Other Projects</a>
+        <a class="aref" href="./docs/">Documentation</b></a>
+</div>
+
+<div class="container">
+        <h1 class="header">
+                NvDialog API Reference
+        </h1>
+        <p class="small">
+                API version: 0.1.3
+        </p>
+        <br>
+        <br>
+        <h1 class="large">
+                Declaration
+        </h1>
+        <code>
+                /* Function Declaration */ <br>
+                int nvd_init(char* program);
+        </code>
+        <h1 class="large">
+                Brief Description
+        </h1>
+        <p class="weak">
+                Initializes NvDialog's backends and sets internal flags to appropriate values.
+        </p>
+        <h1 class="large">
+                Detailed Description
+        </h1>
+        <p class="weak">
+                This function initializes the internals of NvDialog as well as <br>
+                its backends (Gtk3 / Gtk4). Not calling this function before any other call <br>
+                to NvDialog will result in undefined behavior, ranging from overflows to distorted UIs.
+        </p>
+        <h1 class="large">
+                Parameters
+        </h1>
+        <p class="weak">
+                <code>program</code> <br>
+                This should be the argv[0] parameter of your executable. <br>
+                Passing this parameter incorrectly will result in undefined behavior.
+        </p>
+        <h1 class="large">
+                Example Code
+        </h1>
+        <pre><code style="font-size: larger">
+int main(int argc, char *argv[])
+{
+        if (nvd_init(argv[0]) != 0) {
+                exit(EXIT_FAILURE);
+        }
+}
+        </code></pre>
+        <h1 class="large">
+                See also
+        </h1>
+        <p class="weak">
+                <a class="aref" style="font-size: medium" href="./nvd_get_version.html">nvd_get_version(void)</a><br>
+                <a class="aref" style="font-size: medium" href="./NvdReply.html">NvdReply</a>
+        </p>
+</div>

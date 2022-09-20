@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="../../highlightjs/styles/atom-one-light.min.css">
+<script src="../../highlightjs/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="shortcut icon" type="image/svg" href="assets/logo.svg"/>
+
+<title>
+        nvd-init | NvDialog API Reference
+</title>
+
+<div class="toppanel" align="right">
+        <a class="aref" href="index.html"><b>Home</a>
+        <a class="aref" href="getstarted.html">Get Started</a>
+        <a class="aref" href="https://github.com/AndroGR/nvdialog/">Source Code</a>
+        <a class="aref" href="other-projects.html">Other Projects</a>
+        <a class="aref" href="./docs/">Documentation</b></a>
+</div>
+
+<div class="container">
+        <h1 class="header">
+                NvDialog API Reference
+        </h1>
+        <p class="small">
+                API version: 0.1.3
+        </p>
+        <br>
+        <br>
+        <h1 class="large">
+                Declaration
+        </h1>
+        <pre><code>
+/* Declaration of NvdError. */
+typedef enum {
+        NVD_NO_ERROR = 0,
+        NVD_NO_DISPLAY = 0xff,
+        NVD_INVALID_PARAM,
+        NVD_NOT_INITIALIZED,
+        NVD_STRING_EMPTY,
+        NVD_OUT_OF_MEMORY,
+        NVD_INTERNAL_ERROR,
+} NvdError;
+        </pre></code>
+        <h1 class="large">
+                Brief Description
+        </h1>
+        <p class="weak">
+                Return type of <code>nvd_get_error</code>. Represents an error code set by NvDialog.
+        </p>
+        <h1 class="large">
+                Detailed Description
+        </h1>
+        <p class="weak">
+                An enumerator indicating the error NvDialog currently has encountered. This code is only returned by
+                <code>nvd_get_error</code>, and can be stringified using the <code>nvd_stringify_error</code> function. <br>
+                The enum starts at <code>0xff</code> and <code>NVD_NO_ERROR (0)</code> is not considered an error.
+        </p>
+        <h1 class="large">
+                Example Code
+        </h1>
+        <pre><code style="font-size: larger">
+#include &lt;nvdialog/nvdialog.h&gt;
+int main(int argc, char *argv[])
+{
+        NvdError result = nvd_init(argv[0]);
+        if (!result) {
+                /* No error, continue. */
+        } else { /* Initialization failed */
+                /* If not initialized, then print an error and exit. */
+                printf("Failed to initialize NvDialog: %s\n", nvd_stringify_error(result));
+                exit(EXIT_FAILURE);
+        }
+        return 0;
+}
+        </code></pre>
+        <h1 class="large">
+                See also
+        </h1>
+        <p class="weak">
+                <a class="aref" style="font-size: medium" href="./nvd_init.html">nvd_init(char*)</a><br>
+                <a class="aref" style="font-size: medium" href="./NvdReply.html">NvdError</a>
+        </p>
+</div>
