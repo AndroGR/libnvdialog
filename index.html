@@ -9,33 +9,34 @@
 <link rel="shortcut icon" type="image/svg" href="assets/logo.svg"/>
 
 <title>
-        libnvdialog | Cross-platform dialog library for C/C++.
+        libnvdialog | Cross-platform window dialog library for C/C++.
 </title>
-
-</script>
 
 <div class="toppanel" align="right">
         <a class="aref" href="index.html"><b>Home</a>
         <a class="aref" href="getstarted.html">Get Started</a>
         <a class="aref" href="https://github.com/AndroGR/nvdialog/">Source Code</a>
-        <a class="aref" href="other-projects.html">Other Projects</a>
+        <a class="aref" href="news/index.html">News</a>
         <a class="aref" href="./docs/">Documentation</b></a>
 </div>
 
 <div class="container" style="padding-left: 5%;">
         <h1 class="header">A cross platform solution for dialogs.</h1>
         <p class="weak">
-                Want to display dialog boxes in your new game, your command line utility, <br>
-                or the setup program you're writing? This library is for you. <br><br>
-                <code>nvdialog</code> is a simple, blazingly fast library for displaying window dialogs using the host's toolkit. <br>
-                It works natively with C and C++ and also provides Rust bindings if desired.
+                Ever wanted a library that would handle all dialog boxes for you, regardless
+                of the project, painlessly and efficiently? <br>
+                <br>
+                NvDialog is an open-source, easy-to-use and rapidly developing library to display <br>
+                dialog boxes on Windows, MacOS, Linux and other Unix-like OSes written in C, with C++ <br>
+                support as well. It was originally developed exclusively for games. Since then, NvDialog <br>
+                has expanded its abilities to all sorts of uses.
         </p>
         <img class="img-class"src="https://raw.githubusercontent.com/AndroGR/nvdialog/master/assets/logo-new.svg" width="29%">
-        <button id="install-btn" onclick="javascript:location.href='getstarted.html'">
+        <button class="btn" onclick="javascript:location.href='getstarted.html'">
                 Get Started
         </button>
 
-        <button class="btn" onclick="javascript:location.href='https:/\/github.com/AndroGR/nvdialog'">
+        <button id="install-btn" onclick="javascript:location.href='https:/\/github.com/AndroGR/nvdialog'">
                 GitHub Repository
         </button>
 </div>
@@ -45,43 +46,25 @@
                 Native UI frameworks
         </h1>
         <p class="weak">
-                The library uses the host's native UI framework or the standard library for the<br>
-                job. For Windows, the Win32 API is used. On GNU/Linux, Gtk3 is used with <code>libadwaita</code><br>
-                support coming soon. MacOS support is also being developed.
+                NvDialog uses the host's native UI framework or the standard library for the<br>
+                job. For Windows, the WinAPI is used. On Linux, <a href="https://gnome.pages.gitlab.gnome.org/libadwaita/doc/1-latest/index.html">libadwaita</a> <br>
+                is used. On MacOS and other Unix-like OSes, Gtk3 is used instead. This means applications always follow the system
+                preferences and the light / dark preferences.
         </p>
 </div>
 
 <div class="container" style="padding-left: 5%;">
         <h1 class="header">
-                Cross-platform, but actually.
+                Cross-platform - Never worry about bug testing again.
         </h1>
         <p class="weak">
-                The library is designed to work with multi-platform support in mind, and <br>
-                great effort has been made to ensure this can be achieved.
+                NvDialog is designed to work with multi-platform support in mind. <br>
+                An idea behind NvDialog is <q>Write once, compile everywhere</q>.
+                <br><br>
+                That means, using NvDialog, your code will only need to be written once, without having <br>
+                to detect the platform, while still being able to use that code on virtually every platform.<br>
                 <br>
-                nvdialog currently supports the following platforms, tested and verified:
-                <br>
-                - GNU/Linux  <br>
-                - Windows 10 <br>
-                - Termux     <br>
-                <br>
-                Support is coming for these platforms soon: <br>
-                - FreeBSD <br>
-                - MacOS X <br>
-        </p>
-</div>
-
-<div class="container" style="padding-left: 5%;">
-        <h1 class="header">Multi-language support</h1>
-        <p class="weak">
-                The library supports C and C++ out of the box. Rust bindings are also on the<br>
-                way that will allow Rust projects to safely use the library. Python support <br>
-                will also be added in later versions if requested.<br><br>
-                If your language isn't here, open a new issue on the <a class="ref" href="https://github.com/AndroGR/nvdialog/">GitHub Repository</a><br>
-                requesting the language support to be added.
         </p>
 </div>
 
 <br>
-
-<img align="center" src="https://raw.githubusercontent.com/AndroGR/nvdialog/master/assets/logo-new.svg" width="44%">

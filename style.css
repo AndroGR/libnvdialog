@@ -66,9 +66,9 @@ body {
         font-size: medium;
         color: aliceblue;
         background-image: linear-gradient(
-                to bottom,
+                to right,
                 rgb(0, 106, 255),
-                rgb(0, 110, 255)
+                rgb(33, 144, 255)
         );
         border: none;
         border-radius: 8px;
@@ -109,8 +109,9 @@ body {
 }
 
 .btn:hover {
+        transition: all 0.3s;
         cursor: pointer;
-        box-shadow: 0px 0px 20px 5px rgba(0, 195, 255, 0.77)
+        box-shadow: 0px 0px 30px 2px rgba(0, 81, 255, 0.66);
 }
 
 .bottom-section {
