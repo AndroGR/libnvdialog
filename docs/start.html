@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+
+<link rel="stylesheet" href="../style.css">
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="shortcut icon" type="image/svg" href="../assets/logo.svg" />
+
+<link rel="stylesheet" href="../highlightjs/styles/atom-one-light.min.css">
+<script src="../highlightjs/highlight.min.js"></script>
+<script>
+    hljs.highlightAll();
+</script>
+<title>Getting Started | NvDialog</title>
+
+<div class="container">
+        <div class="toppanel" align="right">
+                <a class="aref" href="index.html"><b>Home</a>
+                <a class="aref" href="getstarted.html">Get Started</a>
+                <a class="aref" href="https://github.com/AndroGR/nvdialog/">Source Code</a>
+                <a class="aref" href="other-projects.html">Other Projects</a>
+                <a class="aref" href="./docs/index.html">Documentation</b></a>
+        </div>
+
+        <div class="container">
+                <div class="container">
+                    <h1 class="header">
+                        1. Getting Started with NvDialog:
+                    </h1>
+                    <p class="weak">
+                        Hello and welcome to NvDialog! The very first step is how to install NvDialog <br>
+                        so you can start using it at your projects. Installing NvDialog is a relatively simple <br>
+                        process, however on fresh systems you will need to install a bit of software first.
+                        <br><br>
+                        More specifically, you will need to install:
+                        <ul>
+                                <li><a class="aref" href="https://cmake.org">CMake (To build NvDialog)</a></li>
+                                <li><a class="aref" href="https://ninja-build.org/">Ninja (To execute CMake's commands)</a></li>
+                                <li><a class="aref">Any modern C compiler (Preferably GCC or CLang)</a></li>
+                                <li><a class="aref" href="https://git-scm.com/">Git (You will only need this if you want the Git version)</a></li>
+                        </ul>
+                </p>
+                <p class="weak">
+                        Assuming you installed all of these, and you have extracted the source code somewhere (Or cloned it),
+                        enter the source directory (eg. <code class="language-bash">cd nvdialog/</code>), and generate the build files
+                        with the following commands:
+<pre><code>
+$ cmake . -B build/
+$ cd build/
+</code></pre>
+                </p>
+                <p class="weak">
+                        After doing so, in order to compile NvDialog, you should use Ninja, with the generated
+                        files present in the directory:
+                </p>
+<pre><code>
+$ ninja
+</code></pre>
+                <p class="weak">
+                        This step is enough if you aren't planning to install NvDialog, but just use it for <br>
+                        a single project. From there on, you can put the compiled library where you wish, instruct <br>
+                        the compiler to find the NvDialog headers, and you should be good to go. <br><br>
+                        Otherwise, you should also run this command as the superuser on your system:
+                </p>
+<pre><code>
+$ ninja install
+</code></pre>
+                <p class="weak">
+                        These are all the steps for building and installing NvDialog. In order to test if <br>
+                        NvDialog is properly working, you can build the examples under the <code>examples/</code> <br>
+                        directory and run them. Alternatively, you can simply run the example from the homepage.
+                </p>
+
+                </div>
+                <button class="btn" onclick="javascript:location.href='./firstdialogs.html'">
+                        Next: First Dialogs
+                </button>
+        </div>
+</div>

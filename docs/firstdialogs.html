@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+
+<link rel="stylesheet" href="../style.css">
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="shortcut icon" type="image/svg" href="../assets/logo.svg" />
+
+<link rel="stylesheet" href="../highlightjs/styles/atom-one-light.min.css">
+<script src="../highlightjs/highlight.min.js"></script>
+<script>
+    hljs.highlightAll();
+</script>
+
+<title>First Dialogs and NvDialog Objects</title>
+
+<div class="container">
+        <div class="toppanel" align="right">
+                <a class="aref" href="index.html"><b>Home</a>
+                <a class="aref" href="getstarted.html">Get Started</a>
+                <a class="aref" href="https://github.com/AndroGR/nvdialog/">Source Code</a>
+                <a class="aref" href="other-projects.html">Other Projects</a>
+                <a class="aref" href="./docs/index.html">Documentation</b></a>
+        </div>
+
+        <div class="container">
+                <h1 class="header">
+                        First Dialogs | NvDialog Objects
+                </h1>
+                <p class="weak">
+                        Before v0.3.0 was released creating a dialog was pretty straightforward yet <br>
+                        the dialog couldn't be customized at all. On top of that, those dialogs were <br>
+                        created instantly, leading to tiny freezes on older hardware. This changed by <br>
+                        the release of v0.3.0, and was replaced with an object-like model. Each dialog <br>
+                        features a constructor, a destructor and class members, manipulated through pointers. <br>
+                        <br>
+                        This was largely inspired by <a href="https://gtk.org">Gtk</a>'s syntax, although with <br>
+                        a bit of personal modifications to better match NvDialog. <br>
+                        <br>
+                        Let's see a bit better, what does this mean? Read the code below:
+                </p>
+                <pre><code>
+#include &lt;nvdialog/nvdialog.h&gt;
+
+int main(int argc, char** argv) {
+        NvdDialogBox* // This is an opaque type for the object.
+        dialog_box = nvd_dialog_box_new(); // Constructor of the latter.
+
+        nvd_show_dialog(dialog_box); // This is irrelevant for this case, it's just used to show the dialog.
+
+        nvd_free_object(dialog_box); // This is the destructor.
+}
+                </code></pre>
+                <p class="weak" align="justify">
+                        As you can see, a dialog is nothing more than a simple opaque struct, which <br>
+                        holds data to show a dialog box. Which makes it very easy to customize the  <br>
+                        dialog before showing it, reusing it and improving performance. <br><br>
+                        After the rather lengthy explanation of how NvDialog works, its time to look into <br>
+                        how to actually use it: <br>
+                </p>
+                <p class="small">
+                        First, we have to include the header, which declares and exports everything <br>
+                        related to NvDialog:
+                </p>
+<pre><code>
+#include &lt;nvdialog/nvdialog.h&gt;
+
+</code></pre>
+                <p class="small">
+                        Afterwards, we need to declare our <code>main</code> function. It is required to have <br>
+                        the <code>argc</code> and <code>argv</code> parameters also included, in order to use <br>
+                        <code>nvd_init</code>:
+                </p>
+<pre><code>
+int main(int argc, char** argv) {
+
+}
+</code></pre>
+                <p class="small">
+                        From there on, we have to construct a new dialog object using an initializer. <br>
+                        Since we are creating just a window with some text in it, we can simply use <br>
+                        a single <code>NvdDialogBox</code>:
+                </p>
+<pre><code>
+NvdDialogBox* dialog = nvd_dialog_box_new("Your title", "The message to write", NVD_DIALOG_SIMPLE);
+</code></pre>
+                <p class="small">
+                        This is all we have to do to create a single dialog. However, constructing <br>
+                        the dialog and actually rendering it to the system are seperate tasks. <br>
+                        Each dialog type (<code>NvdDialogBox</code>, <code>NvdAboutDialog</code>) has <br>
+                        its own function to do that, but for this case, we can simply use <br>
+                        <code>nvd_show_dialog</code>:
+                </p>
+<pre><code>
+nvd_show_dialog(dialog);
+return 0; // Just to indicate success
+
+</code></pre>
+                <p class="small">
+                        After all of this, we should be able to see a dialog box:
+                </p>
+<img src="screenshots/msgbox.png" width="344px;">
+        </div>
+</div>

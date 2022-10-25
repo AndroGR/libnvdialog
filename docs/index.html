@@ -8,6 +8,12 @@
 
 <link rel="shortcut icon" type="image/svg" href="../assets/logo.svg" />
 
+<link rel="stylesheet" href="../highlightjs/styles/atom-one-light.min.css">
+<script src="../highlightjs/highlight.min.js"></script>
+<script>
+    hljs.highlightAll();
+</script>
+
 <title>
     Welcome to NvDialog's documentation | NvDialog
 </title>
@@ -23,11 +29,44 @@
     <div class="container">
         <div class="container">
             <h1 class="header">
-                Welcome to NvDialog's documentation!
+                Welcome to NvDialog's <br> documentation!
             </h1>
             <p class="weak">
-                NvDialog offers documentation about building and using the library <br> in order to ensure developers get familiar with it. The documentation does not cover the API <br> reference; If this is what you are looking for, click <a href="api-ref/index.html">here.</a>
-                <br><br> Also, for future contributors, make sure you get familiar with the directory layout of <br> nvdialog. This way consistency is kept nice and tidy, and you also save everyone alot of time. <br>
+                Welcome to NvDialog's official documentation page ! <br>
+                NvDialog's documentation is split into two parts: The actual documentation, <br>
+                which shows how to use NvDialog in your project, and the API Reference, <br>
+                which is a way to search function-specific details for NvDialog's API. <br>
+            </p>
+            <h1 class="header">
+                Quick Start
+            </h1>
+            <p class="weak">
+                This is a quick example of a simple NvDialog dialog window, <br>
+                according to the v0.2.0 API.
+                <pre><code>
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;nvdialog/nvdialog.h&gt;
+
+int main(int argc, char** argv) {
+    if (nvd_init(argv[0]) != 0) {
+        puts("NvDialog failed to initialize, aborting.");
+        abort();
+    }
+
+    char* title = "Hello World!";
+    char* msg   = "Hello World! This is a dialog box created using NvDialog.";
+    NvdDialogBox* box = nvd_dialog_box_new(title,
+                                           msg,
+                                           NVD_DIALOG_SIMPLE);
+    
+    if (!box) exit(EXIT_FAILURE);
+    nvd_show_dialog(box);
+    nvd_free_object(box);
+
+    return 0;
+}
+                </code></pre>
             </p>
         </div>
         <div class="container">
