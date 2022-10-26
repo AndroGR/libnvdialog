@@ -5,6 +5,7 @@ body {
         background-color: rgb(255, 255, 255);
         padding: 150px;
         padding-top: 0;
+        transition: all 0.33s ease;
 }
 
 .aref {
@@ -184,4 +185,45 @@ fieldset {
         right: 25px;
         font-size: 36px;
         margin-left: 50px;
+}
+
+h2 {
+        padding-bottom: 2px;
+        font-size: 40px;
+        font-family: 'Inter';
+}
+
+h4 {
+        padding-bottom: 2px;
+        font-size: 12px;
+        font-family: 'Anek Telugu';
+        font-weight: 100;
+}
+
+details {
+        font-family: 'Anek Telugu';
+}
+
+.btn-small {
+        transition: all 0.33s;
+        font-family: 'Anek Telugu';
+        font-size: 1px;
+        color: aliceblue;
+        background-image: linear-gradient(
+                to right,
+                rgb(0, 106, 255),
+                rgb(33, 144, 255)
+        );
+        border: none;
+        border-radius: 8px;
+        font-size: large;
+        padding: 10px;
+        padding-top: 2px;
+        padding-bottom: 0px;
+}
+
+.btn-small:hover {
+        transition: all 0.3s;
+        cursor: pointer;
+        box-shadow: 0px 0px 10px 1px rgba(0, 81, 255, 0.66);
 }

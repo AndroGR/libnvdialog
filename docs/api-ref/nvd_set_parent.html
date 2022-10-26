@@ -12,7 +12,7 @@
 <link rel="shortcut icon" type="image/svg" href="assets/logo.svg"/>
 
 <title>
-        nvd_init | NvDialog API Reference
+        nvd_set_parent | NvDialog API Reference
 </title>
 
 <div class="toppanel" align="right">
@@ -37,27 +37,26 @@
         </h1>
         <code>
                 /* Function Declaration */ <br>
-                int nvd_init(char*);
+                int nvd_set_parent(NvdParentWindow);
         </code>
         <h1 class="large">
                 Brief Description
         </h1>
         <p class="weak">
-                Initializes NvDialog.
+                Sets a window as the parent of all dialogs created from NvDialog.
         </p>
         <h1 class="large">
                 Detailed Description
         </h1>
         <p class="weak">
-                This function initializes NvDialog's internal backends and sets the ground for new dialogs to
-                be created. Although not necessary, this function should be called regardless of the platform
-                to avoid undefined behavior.
+                Using the parameter given, a window will be set as the parent of all
+                dialogs that are created from within the library.
         </p>
         <h1 class="large">
                 Parameters
         </h1>
         <p class="weak">
-                <code>program</code> -- The argv[0] set in your main function.
+                <code>parent</code> -- The window to use.
         </p>
         <h1 class="large">
                 Example Code
@@ -68,19 +67,16 @@
 #include &lt;stdio.h&gt;
 
 int main(int argc, char *argv[]) {
-        int result = nvd_init(argv[0]);
-        if (result != 0) {
-                puts("Couldn't initialize NvDialog, aborting execution.");
-                abort();
-        }
+        nvd_init(argv[0]);
+        GtkWindow* window = gtk_window_new(GTK_WINDOW_TOPLEVEL);
 
-        return 0;
+        nvd_set_parent((void*) window);
 }
         </code></pre>
         <h1 class="header">
                 Notes
         </h1>
         <p class="weak">
-                <i>(Empty)</i>
+                This is a very dangerous function, and may not work as expected.
         </p>
 </div>

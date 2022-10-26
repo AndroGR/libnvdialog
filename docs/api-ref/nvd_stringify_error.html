@@ -12,7 +12,7 @@
 <link rel="shortcut icon" type="image/svg" href="assets/logo.svg"/>
 
 <title>
-        NvdError | NvDialog API Reference
+        nvd_stringify_error | NvDialog API Reference
 </title>
 
 <div class="toppanel" align="right">
@@ -20,7 +20,7 @@
         <a class="aref" href="getstarted.html">Get Started</a>
         <a class="aref" href="https://github.com/AndroGR/nvdialog/">Source Code</a>
         <a class="aref" href="other-projects.html">Other Projects</a>
-        <a class="aref" href="./docs/">Documentation</b></a>
+        <a class="aref" href="../../">Documentation</b></a>
 </div>
 
 <div class="container">
@@ -28,62 +28,61 @@
                 NvDialog API Reference
         </h1>
         <p class="small">
-                API version: 0.1.3
+                API version: 0.3.0
         </p>
         <br>
         <br>
         <h1 class="large">
                 Declaration
         </h1>
-        <pre><code>
-/* Declaration of NvdError. */
-typedef enum {
-        NVD_NO_ERROR = 0,
-        NVD_NO_DISPLAY = 0xff,
-        NVD_INVALID_PARAM,
-        NVD_NOT_INITIALIZED,
-        NVD_STRING_EMPTY,
-        NVD_OUT_OF_MEMORY,
-        NVD_INTERNAL_ERROR,
-} NvdError;
-        </pre></code>
+        <code>
+                /* Function Declaration */ <br>
+                const char* nvd_get_error(NvdError err);
+        </code>
         <h1 class="large">
                 Brief Description
         </h1>
         <p class="weak">
-                Return type of <code>nvd_get_error</code>. Represents an error code set by NvDialog.
+                Transforms an error code into a string representation, that can be
+                used to print errors to the console. Recommended: Enable automatic logging of
+                the library's errors instead of manually logging them yourself.
         </p>
         <h1 class="large">
                 Detailed Description
         </h1>
         <p class="weak">
-                An enumerator indicating the error NvDialog currently has encountered. This code is only returned by
-                <code>nvd_get_error</code>, and can be stringified using the <code>nvd_stringify_error</code> function. <br>
-                The enum starts at <code>0xff</code> and <code>NVD_NO_ERROR (0)</code> is not considered an error.
+                <i>(Empty)</i>
+        </p>
+        <h1 class="large">
+                Parameters
+        </h1>
+        <p class="weak">
+                <code>err</code> -- The error code enum value.
         </p>
         <h1 class="large">
                 Example Code
         </h1>
         <pre><code style="font-size: larger">
 #include &lt;nvdialog/nvdialog.h&gt;
-int main(int argc, char *argv[])
-{
-        NvdError result = nvd_init(argv[0]);
-        if (!result) {
-                /* No error, continue. */
-        } else { /* Initialization failed */
-                /* If not initialized, then print an error and exit. */
-                printf("Failed to initialize NvDialog: %s\n", nvd_stringify_error(result));
+#include &lt;stdlib.h&gt;
+#include &lt;stdio.h&gt;
+
+int main(int argc, char *argv[]) {
+        nvd_init(argv[0]);
+        
+        if (nvd_get_error() != NVD_NO_ERROR) {
+                const char* err = nvd_get_error();
+                printf("Error: %s\n", err);
                 exit(EXIT_FAILURE);
         }
+
         return 0;
 }
         </code></pre>
-        <h1 class="large">
-                See also
+        <h1 class="header">
+                Notes
         </h1>
         <p class="weak">
-                <a class="aref" style="font-size: medium" href="./nvd_init.html">nvd_init(char*)</a><br>
-                <a class="aref" style="font-size: medium" href="./NvdReply.html">NvdError</a>
+                <i>(Empty)</i>
         </p>
 </div>

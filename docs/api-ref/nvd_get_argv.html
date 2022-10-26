@@ -12,7 +12,7 @@
 <link rel="shortcut icon" type="image/svg" href="assets/logo.svg"/>
 
 <title>
-        nvd_init | NvDialog API Reference
+        nvd_get_argv | NvDialog API Reference
 </title>
 
 <div class="toppanel" align="right">
@@ -37,27 +37,26 @@
         </h1>
         <code>
                 /* Function Declaration */ <br>
-                int nvd_init(char*);
+                const char* nvd_get_argv(void);
         </code>
         <h1 class="large">
                 Brief Description
         </h1>
         <p class="weak">
-                Initializes NvDialog.
+                Returns the <code>argv[0]</code> parameter set during initialization of NvDialog.
         </p>
         <h1 class="large">
                 Detailed Description
         </h1>
         <p class="weak">
-                This function initializes NvDialog's internal backends and sets the ground for new dialogs to
-                be created. Although not necessary, this function should be called regardless of the platform
-                to avoid undefined behavior.
+                This function will return the <code>argv[0]</code> parameter set during initialization,
+                or NULL if no initialization happened. If the latter is the case, feel free to ignore it.
         </p>
         <h1 class="large">
                 Parameters
         </h1>
         <p class="weak">
-                <code>program</code> -- The argv[0] set in your main function.
+                No parameters.
         </p>
         <h1 class="large">
                 Example Code
@@ -73,6 +72,9 @@ int main(int argc, char *argv[]) {
                 puts("Couldn't initialize NvDialog, aborting execution.");
                 abort();
         }
+
+        const char* argv_0 = nvd_get_argv();
+        printf("argv_0: %s\n", argv_0);
 
         return 0;
 }

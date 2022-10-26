@@ -12,7 +12,7 @@
 <link rel="shortcut icon" type="image/svg" href="assets/logo.svg"/>
 
 <title>
-        nvd_init | NvDialog API Reference
+        nvd_set_parent | NvDialog API Reference
 </title>
 
 <div class="toppanel" align="right">
@@ -37,27 +37,25 @@
         </h1>
         <code>
                 /* Function Declaration */ <br>
-                int nvd_init(char*);
+                NvdParentWindow nvd_get_parent(void);
         </code>
         <h1 class="large">
                 Brief Description
         </h1>
         <p class="weak">
-                Initializes NvDialog.
+                Returns the window attached as the parent of all dialogs of NvDialog.
         </p>
         <h1 class="large">
                 Detailed Description
         </h1>
         <p class="weak">
-                This function initializes NvDialog's internal backends and sets the ground for new dialogs to
-                be created. Although not necessary, this function should be called regardless of the platform
-                to avoid undefined behavior.
+                <i>(Empty)</i>
         </p>
         <h1 class="large">
                 Parameters
         </h1>
         <p class="weak">
-                <code>program</code> -- The argv[0] set in your main function.
+                No parameters.
         </p>
         <h1 class="large">
                 Example Code
@@ -68,12 +66,15 @@
 #include &lt;stdio.h&gt;
 
 int main(int argc, char *argv[]) {
-        int result = nvd_init(argv[0]);
-        if (result != 0) {
-                puts("Couldn't initialize NvDialog, aborting execution.");
-                abort();
-        }
+        nvd_init(argv[0]);
+        GtkWindow* window = gtk_window_new(GTK_WINDOW_TOPLEVEL);
 
+        nvd_set_parent((void*) window);
+
+        GtkWindow* window = (GtkWindow*) nvd_get_parent();
+        if (!window) abort();
+
+        // You can use the returned window as you wish.
         return 0;
 }
         </code></pre>

@@ -12,7 +12,7 @@
 <link rel="shortcut icon" type="image/svg" href="assets/logo.svg"/>
 
 <title>
-        nvd_init | NvDialog API Reference
+        nvd_set_parent | NvDialog API Reference
 </title>
 
 <div class="toppanel" align="right">
@@ -37,27 +37,27 @@
         </h1>
         <code>
                 /* Function Declaration */ <br>
-                int nvd_init(char*);
+                bool nvd_get_capabilities(int query);
         </code>
         <h1 class="large">
                 Brief Description
         </h1>
         <p class="weak">
-                Initializes NvDialog.
+                Returns the NvDialog's build time detected capabilities.
         </p>
         <h1 class="large">
                 Detailed Description
         </h1>
         <p class="weak">
-                This function initializes NvDialog's internal backends and sets the ground for new dialogs to
-                be created. Although not necessary, this function should be called regardless of the platform
-                to avoid undefined behavior.
+                This function returns the NvDialog's build time capabilities, such
+                as backends enabled, linkage method and others. It is a work in progress
+                since most of the library isn't modular.
         </p>
         <h1 class="large">
                 Parameters
         </h1>
         <p class="weak">
-                <code>program</code> -- The argv[0] set in your main function.
+                <code>query</code> -- Which capability to query.
         </p>
         <h1 class="large">
                 Example Code
@@ -68,13 +68,10 @@
 #include &lt;stdio.h&gt;
 
 int main(int argc, char *argv[]) {
-        int result = nvd_init(argv[0]);
-        if (result != 0) {
-                puts("Couldn't initialize NvDialog, aborting execution.");
-                abort();
-        }
+        nvd_init(argv[0]);
 
-        return 0;
+        if (!nvd_get_capabilities(NVD_COMPAT_MODE)) return 1;
+        else return 0;
 }
         </code></pre>
         <h1 class="header">

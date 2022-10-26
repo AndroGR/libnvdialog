@@ -12,7 +12,7 @@
 <link rel="shortcut icon" type="image/svg" href="assets/logo.svg"/>
 
 <title>
-        nvd_init | NvDialog API Reference
+        nvd_free_object | NvDialog API Reference
 </title>
 
 <div class="toppanel" align="right">
@@ -37,27 +37,28 @@
         </h1>
         <code>
                 /* Function Declaration */ <br>
-                int nvd_init(char*);
+                void nvd_free_object(void* object);
         </code>
         <h1 class="large">
                 Brief Description
         </h1>
         <p class="weak">
-                Initializes NvDialog.
+                Deletes an object creates by NvDialog.
         </p>
         <h1 class="large">
                 Detailed Description
         </h1>
         <p class="weak">
-                This function initializes NvDialog's internal backends and sets the ground for new dialogs to
-                be created. Although not necessary, this function should be called regardless of the platform
-                to avoid undefined behavior.
+                Call this function when you are no longer interested in using the
+                parameter passed anymore, to free up any resources occupied by the object.
+                Note that calling this in the middle of an operation will cause undefined
+                behavior.
         </p>
         <h1 class="large">
                 Parameters
         </h1>
         <p class="weak">
-                <code>program</code> -- The argv[0] set in your main function.
+                <code>object</code> -- The object to be deleted.
         </p>
         <h1 class="large">
                 Example Code
@@ -68,12 +69,12 @@
 #include &lt;stdio.h&gt;
 
 int main(int argc, char *argv[]) {
-        int result = nvd_init(argv[0]);
-        if (result != 0) {
-                puts("Couldn't initialize NvDialog, aborting execution.");
-                abort();
-        }
+        nvd_init(argv[0]);
+        NvdDialogBox* dialog = nvd_dialog_box_new("Example", "Example Box", NVD_DIALOG_SIMPLE);
+        if (!dialog) abort();
 
+        nvd_show_dialog(dialog);
+        nvd_free_object(dialog); // No longer used, so we can just free it.
         return 0;
 }
         </code></pre>

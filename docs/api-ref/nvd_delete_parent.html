@@ -37,27 +37,26 @@
         </h1>
         <code>
                 /* Function Declaration */ <br>
-                int nvd_init(char*);
+                void nvd_delete_parent(void);
         </code>
         <h1 class="large">
                 Brief Description
         </h1>
         <p class="weak">
-                Initializes NvDialog.
+                Unmarks the window set from <a href="./nvd_set_parent.html">nvd_set_parent</a> as the parent window.
         </p>
         <h1 class="large">
                 Detailed Description
         </h1>
         <p class="weak">
-                This function initializes NvDialog's internal backends and sets the ground for new dialogs to
-                be created. Although not necessary, this function should be called regardless of the platform
-                to avoid undefined behavior.
+                This will reset the changes made by <a href="./nvd_set_parent.html">nvd_set_parent</a>, by
+                unmarking the window that is given as the parent from NvDialog.
         </p>
         <h1 class="large">
                 Parameters
         </h1>
         <p class="weak">
-                <code>program</code> -- The argv[0] set in your main function.
+                No parameters.
         </p>
         <h1 class="large">
                 Example Code
@@ -68,11 +67,14 @@
 #include &lt;stdio.h&gt;
 
 int main(int argc, char *argv[]) {
-        int result = nvd_init(argv[0]);
-        if (result != 0) {
-                puts("Couldn't initialize NvDialog, aborting execution.");
-                abort();
-        }
+        nvd_init(argv[0]);
+        GtkWindow* window = gtk_window_new(GTK_WINDOW_TOPLEVEL);
+
+        nvd_set_parent((void*) window);
+
+        GtkWindow* window = (GtkWindow*) nvd_get_parent();
+        if (!window) abort();
+        nvd_delete_parent(window);
 
         return 0;
 }

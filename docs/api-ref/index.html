@@ -6,42 +6,72 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link rel="shortcut icon" type="image/svg" href="assets/logo.svg"/>
+<link rel="shortcut icon" type="image/svg" href="../../assets/logo.svg" />
+
+<link rel="stylesheet" href="../highlightjs/styles/atom-one-light.min.css">
+<script src="../highlightjs/highlight.min.js"></script>
+<script>
+    hljs.highlightAll();
+</script>
 
 <title>
-        NvDialog API Reference | NvDialog
+    NvDialog API Reference | NvDialog
 </title>
 
-<div class="toppanel" align="right">
-        <a class="aref" href="index.html"><b>Home</a>
-        <a class="aref" href="getstarted.html">Get Started</a>
-        <a class="aref" href="https://github.com/AndroGR/nvdialog/">Source Code</a>
-        <a class="aref" href="other-projects.html">Other Projects</a>
-        <a class="aref" href="./docs/">Documentation</b></a>
-</div>
-
-
 <div class="container">
-        <h1 class="header">NvDialog API Reference</h1>
-        <p class="weak">
-                This is the API reference of NvDialog. You may read this to get more familiar <br>
-                with the library or simply understand the functions better. The documentation is written <br>
-                by hand since auto-generation documentation tools do not work (For me). <br><br>
-        </p>
-        <h1 class="header">Functions</h1>
-        <a class="aref" href="./nvd_init.html">nvd_init (char*)</a> <br>
-        <a class="aref" href="./nvd-init.html">nvd_dialog_box_new (...)</a> <br>
-        <a class="aref" href="./nvd-init.html">nvd_question_box_new (...)</a> <br>
-        <a class="aref" href="./nvd-init.html">nvd_dialog_show (NvdDialogBox*)</a> <br>
-        <a class="aref" href="./nvd-init.html">nvd_get_error (void)</a> <br>
-        <a class="aref" href="./nvd-init.html">nvd_stringify_error (NvdDialogBox*)</a> <br>
-        <a class="aref" href="./nvd-init.html">nvd_dialog_show (NvdDialogBox*)</a> <br>
+        <div class="toppanel" align="right">
+                <a class="aref" href="index.html"><b>Home</a>
+                <a class="aref" href="getstarted.html">Get Started</a>
+                <a class="aref" href="https://github.com/AndroGR/nvdialog/">Source Code</a>
+                <a class="aref" href="news/index.html">News</a>
+                <a class="aref" href="./docs/">Documentation</b></a>
+        </div>
+        <h2>
+                NvDialog 0.3 API Documentation
+        </h2>
+        <h4>
+                <i>
+                        The core NvDialog library, not including related projects.
+                </i>
+        </h4>
 
-        <h1 class="headers">Typedefs</h1>
-        <p>
-                struct <a class="aref" href="./nvd_init.html">NvdDialogBox</a> <br>
-                enum <a class="aref" href="./NvdReply.html">NvdReply</a> <br>
-                enum <a class="aref" href="./NvdError.html">NvdError</a> <br>
-                enum <a class="aref" href="./nvd_init.html">NvdDialogType</a> <br>
-        </p>
+        <details open>
+                Source Code: <a href="https://github.com/AndroGR/nvdialog">Click Here</a> <br>
+                Version: v0.3.0 <br>
+                Language(s): C, C++, Rust <br>
+                Homepage: <a href="https://androgr.github.io/libnvdialog/">Click Here</a>
+        </details>
+
+        <h2>
+                Functions
+        </h2>
+        <ul>
+                <li>
+                        <a class="aref" href="./nvd_init.html">nvd_init(char*)</a> <br>
+                </li>
+                <li>
+                        <a class="aref" href="./nvd_get_version.html">nvd_get_version()</a> <br>
+                </li>
+                <li>
+                        <a class="aref" href="./nvd_get_argv.html">nvd_get_argv()</a> <br>
+                </li>
+                <li>
+                        <a href="./nvd_set_parent.html" class="aref">nvd_set_parent(NvdParentWindow)</a>
+                </li>
+                <li>
+                        <a href="./nvd_get_parent.html" class="aref">nvd_get_parent()</a>
+                </li>
+                <li>
+                        <a href="./nvd_delete_parent.html" class="aref">nvd_delete_parent()</a>
+                </li>
+                <li>
+                        <a href="./nvd_free_object.html" class="aref">nvd_free_object(void*)</a>
+                </li>
+                <li>
+                        <a href="./nvd_get_capabilities.html" class="aref">nvd_get_capabilities(int)</a>
+                </li>
+                <li>
+                        <a href="./nvd_get_error.html" class="aref">nvd_get_error()</a>
+                </li>
+        </ul>
 </div>
